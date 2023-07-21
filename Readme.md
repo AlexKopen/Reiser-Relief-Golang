@@ -16,5 +16,5 @@ npm install -g browser-sync
 ```
 
 ```
-browser-sync start --proxy "localhost:8081" --files "**/*.*"
+browser-sync start --proxy "localhost:8080" --files "**/*.*"
 ```
