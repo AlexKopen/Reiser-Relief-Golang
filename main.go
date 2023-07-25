@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -27,7 +28,11 @@ type Attributes struct {
 	PublishedAt time.Time `json:"publishedAt"`
 }
 
+var useLocal bool
+
 func main() {
+	useLocal = os.Getenv("USELOCAL") == "true"
+
 	// Create a new Gin router
 	router := gin.Default()
 
@@ -54,7 +59,15 @@ func main() {
 }
 
 func callAPI(key string) string {
-	apiURL := fmt.Sprintf("https://goldfish-app-4dxk2.ondigitalocean.app/api/%s", key)
+	var hostURL string
+
+	if useLocal {
+		hostURL = "http://localhost:1337/api/"
+	} else {
+		hostURL = "https://goldfish-app-4dxk2.ondigitalocean.app/api/"
+	}
+
+	apiURL := fmt.Sprintf("%s%s", hostURL, key)
 	bearerToken := "Bearer db7dcd0fe57639244ee844a6493294ff7859e7c5e7ba08cb5a87f6b8c9773cfe0b2aaea926240b801b633b1d2d159aa19834be0cadfb7e2ee86b1942c2b2a2b89fffe1bbc8b51920ec14cdc9f477f609c1cb10ece3a87719e24af2b0d91b38c3e3e1eac8bfaad89f9fc3ea54a2543272810844bf0730f6af2dbe10fad34a1cb2"
 
 	req, err := http.NewRequest("GET", apiURL, nil)

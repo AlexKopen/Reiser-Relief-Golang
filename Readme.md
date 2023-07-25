@@ -8,7 +8,7 @@ go install github.com/cosmtrek/air@latest
 ```
 
 ```
-air
+export USELOCAL=true; air
 ```
 
 ```
