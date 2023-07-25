@@ -1,0 +1,24 @@
+{
+  "name": "reiser-relief-golang",
+  "version": "1.0.0",
+  "description": "``` export GOPATH=$HOME/go export PATH=$PATH:$GOPATH/bin ```",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --proxy \"localhost:8080\" --files \"**/*.*\" & node-sass --watch scss/main.scss --output-style compressed -o static"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexKopen/Reiser-Relief-Golang.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexKopen/Reiser-Relief-Golang/issues"
+  },
+  "homepage": "https://github.com/AlexKopen/Reiser-Relief-Golang#readme",
+  "dependencies": {
+    "browser-sync": "^2.29.3",
+    "node-sass": "^9.0.0"
+  }
+}

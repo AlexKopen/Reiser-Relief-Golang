@@ -11,10 +11,7 @@ go install github.com/cosmtrek/air@latest
 export USELOCAL=true; air
 ```
 
+Live reload and SASS compilation
 ```
-npm install -g browser-sync
-```
-
-```
-browser-sync start --proxy "localhost:8080" --files "**/*.*"
+yarn install && yarn start
 ```
