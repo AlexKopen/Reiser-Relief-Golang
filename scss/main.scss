@@ -1,15 +1,6 @@
-body {
-  background: gray;
-  color: white;
-}
+@import 'header.scss';
 
-
-.header {
-  .navigation {
-    display: flex;
-  }
-  
-  div {
-    margin-left: 1em;
-  }
+body, html, div {
+    display: block;
+    box-sizing: border-box;
 }
