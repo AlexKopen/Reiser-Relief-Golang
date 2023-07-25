@@ -33,28 +33,36 @@ var useLocal bool
 func main() {
 	useLocal = os.Getenv("USELOCAL") == "true"
 
-	// Create a new Gin router
 	router := gin.Default()
 
-	// Load HTML templates
+	router.Static("/static", "./static")
 	router.LoadHTMLGlob("templates/*")
 
-	// Define a route for the main page
 	router.GET("/", func(c *gin.Context) {
-		c.HTML(200, "index.tmpl", gin.H{
+		c.HTML(200, "home.tmpl", gin.H{
 			"Title":            "Home",
 			"MissionStatement": callAPI("mission-statement"),
 		})
 	})
 
-	// Define a route for the about page
 	router.GET("/about", func(c *gin.Context) {
 		c.HTML(200, "about.tmpl", gin.H{
 			"Title": "About",
 		})
 	})
 
-	// Start the server on port 8080
+	router.GET("/donate", func(c *gin.Context) {
+		c.HTML(200, "donate.tmpl", gin.H{
+			"Title": "Donate",
+		})
+	})
+
+	router.GET("/contact", func(c *gin.Context) {
+		c.HTML(200, "contact.tmpl", gin.H{
+			"Title": "Contact",
+		})
+	})
+
 	router.Run(":8080")
 }
 

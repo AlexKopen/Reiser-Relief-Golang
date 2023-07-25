@@ -1,0 +1,12 @@
+body {
+    background: gray;
+    color: white;
+}
+
+.header .navigation {
+    display: flex;
+}
+
+.header .navigation div {
+    margin-left: 1em;
+}
