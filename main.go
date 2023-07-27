@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
 	"strings"
 	"time"
 )
@@ -32,6 +33,14 @@ type Attributes struct {
 var useLocal bool
 
 func main() {
+	cmd := exec.Command("sh", "-c", "lsof -t -i :8080 | xargs -r kill -9")
+
+	_, err := cmd.Output()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	useLocal = os.Getenv("USELOCAL") == "true"
 
 	router := gin.Default()
@@ -62,7 +71,7 @@ func main() {
 			"Title": "Donate",
 		}
 
-		render(c, "Donate.tmpl", data)
+		render(c, "donate.tmpl", data)
 	})
 
 	router.GET("/contact", func(c *gin.Context) {
@@ -100,7 +109,7 @@ func getCSSFile() string {
 		}
 	}
 
-	return ""
+	return "hi"
 }
 
 func callAPI(key string) string {
