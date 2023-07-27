@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"os/exec"
 	"strings"
 	"time"
 )
@@ -33,13 +32,13 @@ type Attributes struct {
 var useLocal bool
 
 func main() {
-	cmd := exec.Command("sh", "-c", "lsof -t -i :8080 | xargs -r kill -9")
-
-	_, err := cmd.Output()
-
-	if err != nil {
-		log.Fatal(err)
-	}
+	//cmd := exec.Command("sh", "-c", "lsof -t -i :8080 | xargs -r kill -9")
+	//
+	//_, err := cmd.Output()
+	//
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
 
 	useLocal = os.Getenv("USELOCAL") == "true"
 
