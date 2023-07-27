@@ -1,9 +1,15 @@
+@import 'globals.scss';
+
 .header {
-  .navigation {
-    display: flex;
+  .header-container {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
   }
 
-  div {
-    margin-left: 1em;
-  }
+  .header-container-1 { grid-area: 1 / 1 / 2 / 2; }
+  .header-container-2 { grid-area: 1 / 2 / 2 / 3; }
+  .header-container-3 { grid-area: 1 / 3 / 2 / 4; }
 }
