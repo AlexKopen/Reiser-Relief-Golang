@@ -12,8 +12,6 @@ $color-theme-dark: #00514D;
 $color-theme-light: #36bfbb;
 
 @mixin button() {
-  font-family: $cursive-font-family;
-  font-weight: $cursive-font-weight;
   width: 10em;
   background: $color-orange;
   color: $color-white;
@@ -28,5 +26,12 @@ $color-theme-light: #36bfbb;
     width: 2em;
     display: flex;
     margin-right: 0.5em;
+  }
+
+  & > div:nth-of-type(2) {
+    font-family: $cursive-font-family;
+    font-weight: $cursive-font-weight;
+    font-size: 18px;
+    letter-spacing: 2px;
   }
 }
