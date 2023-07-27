@@ -1,7 +1,6 @@
 {
   "name": "reiser-relief-golang",
   "version": "1.0.0",
-  "description": "``` export GOPATH=$HOME/go export PATH=$PATH:$GOPATH/bin ```",
   "main": "index.js",
   "scripts": {
     "sass": "node-sass scss/main.scss --output-style compressed -o static",

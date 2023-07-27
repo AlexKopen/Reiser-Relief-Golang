@@ -1,10 +1,6 @@
 @import 'globals.scss';
 @import 'header.scss';
 
-html, body {
-    height: 100%;
-}
-
 html, body, div, input, textarea {
     display: block;
     box-sizing: border-box;
@@ -12,6 +8,10 @@ html, body, div, input, textarea {
     padding: 0;
     font-family: 'Spectral', serif;
     font-weight: $font-weight-regular;
+}
+
+html, body {
+    height: 100%;
 }
 
 img {

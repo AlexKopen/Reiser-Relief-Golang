@@ -109,7 +109,7 @@ func getCSSFile() string {
 		}
 	}
 
-	return "hi"
+	return ""
 }
 
 func callAPI(key string) string {

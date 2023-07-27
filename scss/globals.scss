@@ -6,6 +6,27 @@ $font-weight-bold: 700;
 $cursive-font-family: 'Dancing Script', cursive;
 $cursive-font-weight: 700;
 
+$color-white: #fff;
 $color-orange: #EB8D29;
 $color-theme-dark: #00514D;
 $color-theme-light: #36bfbb;
+
+@mixin button() {
+  font-family: $cursive-font-family;
+  font-weight: $cursive-font-weight;
+  width: 10em;
+  background: $color-orange;
+  color: $color-white;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+  cursor: pointer;
+
+  & > div:first-of-type {
+    width: 2em;
+    display: flex;
+    margin-right: 0.5em;
+  }
+}

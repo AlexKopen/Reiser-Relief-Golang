@@ -7,6 +7,12 @@
     grid-template-rows: 1fr;
     grid-column-gap: 0;
     grid-row-gap: 0;
+    padding: 1em;
+
+    & > div {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .header-container-1 {
@@ -19,10 +25,19 @@
 
   .header-container-2 {
     grid-area: 1 / 2 / 2 / 3;
+
+    & > div {
+      margin-left: 2em;
+    }
   }
 
 
   .header-container-3 {
     grid-area: 1 / 3 / 2 / 4;
+    justify-content: right;
+
+    & > div {
+      @include button;
+    }
   }
 }
