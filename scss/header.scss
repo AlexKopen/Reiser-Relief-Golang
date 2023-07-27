@@ -9,7 +9,20 @@
     grid-row-gap: 0;
   }
 
-  .header-container-1 { grid-area: 1 / 1 / 2 / 2; }
-  .header-container-2 { grid-area: 1 / 2 / 2 / 3; }
-  .header-container-3 { grid-area: 1 / 3 / 2 / 4; }
+  .header-container-1 {
+    grid-area: 1 / 1 / 2 / 2;
+
+    & > div {
+      width: 2em;
+    }
+  }
+
+  .header-container-2 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+
+  .header-container-3 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
 }

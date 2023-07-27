@@ -4,8 +4,15 @@
   "description": "``` export GOPATH=$HOME/go export PATH=$PATH:$GOPATH/bin ```",
   "main": "index.js",
   "scripts": {
-    "start": "browser-sync start --proxy \"localhost:8080\" --files \"**/*.*\" & node-sass --watch scss/main.scss --output-style compressed -o static"
+    "sass": "node-sass scss/main.scss --output-style compressed -o static",
+    "clean": "rimraf static/*.css",
+    "clean2": "find static -type f -name '*.css' ! -name '*.*.css' -delete",
+    "postcss": "postcss static/main.css -d static",
+    "compile": "npm run clean && npm run sass && npm run postcss && npm run clean2",
+    "watch": "nodemon -e scss -x \"npm run compile\"",
+    "start": "browser-sync start --proxy \"localhost:8080\" --files \"static/manifest.json,templates/**/*.*\" & npm run watch"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlexKopen/Reiser-Relief-Golang.git"
@@ -19,6 +26,11 @@
   "homepage": "https://github.com/AlexKopen/Reiser-Relief-Golang#readme",
   "dependencies": {
     "browser-sync": "^2.29.3",
-    "node-sass": "^9.0.0"
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.27",
+    "postcss-cli": "^10.1.0",
+    "postcss-hash": "^3.0.0",
+    "rimraf": "^5.0.1"
   }
 }

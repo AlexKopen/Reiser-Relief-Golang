@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -39,31 +40,67 @@ func main() {
 	router.LoadHTMLGlob("templates/*")
 
 	router.GET("/", func(c *gin.Context) {
-		c.HTML(200, "home.tmpl", gin.H{
+
+		data := map[string]interface{}{
 			"Title":            "Home",
 			"MissionStatement": callAPI("mission-statement"),
-		})
+		}
+
+		render(c, "home.tmpl", data)
 	})
 
 	router.GET("/about", func(c *gin.Context) {
-		c.HTML(200, "about.tmpl", gin.H{
+		data := map[string]interface{}{
 			"Title": "About",
-		})
+		}
+
+		render(c, "about.tmpl", data)
 	})
 
 	router.GET("/donate", func(c *gin.Context) {
-		c.HTML(200, "donate.tmpl", gin.H{
+		data := map[string]interface{}{
 			"Title": "Donate",
-		})
+		}
+
+		render(c, "Donate.tmpl", data)
 	})
 
 	router.GET("/contact", func(c *gin.Context) {
-		c.HTML(200, "contact.tmpl", gin.H{
+		data := map[string]interface{}{
 			"Title": "Contact",
-		})
+		}
+
+		render(c, "contact.tmpl", data)
 	})
 
 	router.Run(":8080")
+}
+
+func render(c *gin.Context, templateName string, data map[string]interface{}) {
+	commonData := map[string]interface{}{
+		"Stylesheet": getCSSFile(),
+	}
+
+	for k, v := range data {
+		commonData[k] = v
+	}
+
+	c.HTML(http.StatusOK, templateName, commonData)
+}
+
+func getCSSFile() string {
+	files, err := ioutil.ReadDir("static")
+	if err != nil {
+		return ""
+	}
+
+	for _, file := range files {
+		if !file.IsDir() && strings.HasSuffix(file.Name(), ".css") {
+			return "/static/" + file.Name()
+		}
+	}
+
+	return ""
 }
 
 func callAPI(key string) string {
