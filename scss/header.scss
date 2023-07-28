@@ -6,16 +6,16 @@
   .square {
     $square-dimension: 45px;
     $top-offset: $square-dimension / 4;
-    $left-offset: $square-dimension / 2;
+    $left-offset: 7px;
 
     position: absolute;
     bottom: 0;
-    top: calc(100% - #{$top-offset});
-    left: calc(50% + #{$left-offset});
-    transform: rotate(45deg) translateX(-50%);
+    top: calc(100% + -#{$square-dimension/2});
+    left: calc(50% - #{$square-dimension/2});
+    transform: rotate(45deg);
     width: $square-dimension;
     height: $square-dimension;
-    background-color: white;
+    background-color: $color-white;
   }
 
   .header-container {
@@ -37,6 +37,7 @@
 
     & > div {
       width: $icon-size;
+      cursor: pointer;
     }
   }
 

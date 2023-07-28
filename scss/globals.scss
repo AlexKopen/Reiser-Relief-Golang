@@ -26,10 +26,13 @@ $icon-size: 4em;
   border-radius: 1em;
   cursor: pointer;
 
-  & > div:first-of-type {
+  & > div {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  & > div:first-of-type {
     width: $icon-size;
   }
 

@@ -1,6 +1,13 @@
 {{ template "header.tmpl" . }}
 
-<div style="background: black; height: 10em; color: white">Home</div>
+<div style="background: black; height: 10em; color: white; display: flex">
+    <div style="background: orange; width: 100%;">
+        hi
+    </div>
+    <div style="width: 100%">
+        hola
+    </div>
+</div>
 <div>{{ .MissionStatement }}</div>
 
 {{ template "footer.tmpl" . }}
