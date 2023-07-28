@@ -1,12 +1,46 @@
 @import 'globals.scss';
 
+.mobile-menu {
+  position: absolute;
+  width: 0;
+  transition: width 0.3s;
+  background: red;
+  z-index: 1;
+
+  & > div {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    right: 1em;
+
+    img {
+      width: $icon-size;
+    }
+  }
+
+  .menu-items-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .menu-item {
+    height: 3em;
+    border-bottom: 1px solid $color-theme-dark;
+    cursor: pointer;
+    font-size: 3em;
+  }
+
+}
+
+
 .header {
   position: relative;
 
   .square {
     $square-dimension: 45px;
-    $top-offset: $square-dimension / 4;
-    $left-offset: 7px;
 
     position: absolute;
     bottom: 0;

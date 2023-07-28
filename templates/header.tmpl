@@ -7,14 +7,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Spectral:wght@400;500;600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="{{ .Stylesheet }}">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const closeMenu = document.querySelector('.close');
+
+            hamburgerMenu.addEventListener('click', function () {
+                mobileMenu.style.width = '100%';
+            });
+
+            closeMenu.addEventListener('click', function () {
+                mobileMenu.style.width = '0';
+            });
+        });
+    </script>
+
 </head>
 <body>
 
+<div class="mobile-menu">
+    <div>
+
+        <div class="close">
+            <img src="/static/xmark-solid.svg" alt="">
+        </div>
+
+        <div class="menu-items-container">
+            <a href="/">
+                <div class="menu-item">
+                    Home
+                </div>
+            </a>
+            <a href="/about">
+                <div class="menu-item">
+                    About
+                </div>
+            </a>
+            <a href="/donate">
+                <div class="menu-item">
+                    Donate
+                </div>
+            </a>
+            <a href="/contact">
+                <div class="menu-item">
+                    Contact
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
 <div class="header">
     <div class="square"></div>
+
     <div class="header-container">
         <div class="header-container-1">
-            <div>
+            <div class="hamburger-menu">
                 <img src="/static/bars-solid.svg" alt="Menu items">
             </div>
         </div>
@@ -27,12 +77,12 @@
         </div>
         <div class="header-container-3">
             <a href="/contact">
-            <div class="header-button">
-                <div>
-                    <img src="/static/phone-volume-solid.svg" alt="">
+                <div class="header-button">
+                    <div>
+                        <img src="/static/phone-volume-solid.svg" alt="">
+                    </div>
+                    <div>Contact</div>
                 </div>
-                <div>Contact</div>
-            </div>
             </a>
         </div>
     </div>
