@@ -7,37 +7,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Spectral:wght@400;500;600;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="{{ .Stylesheet }}">
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const closeMenu = document.querySelector('.close');
-
-            hamburgerMenu.addEventListener('click', function () {
-                mobileMenu.style.width = '100%';
-
-                setTimeout(() => {
-                    closeMenu.style.display = 'block';
-                }, 300)
-            });
-
-            closeMenu.addEventListener('click', function () {
-                mobileMenu.style.width = '0';
-                closeMenu.style.display = 'none';
-            });
-        });
-    </script>
-
 </head>
 <body>
 
+<input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+<div class="header">
+    <div class="square"></div>
+
+    <div class="header-container">
+        <div class="header-container-1">
+            <label for="menu-toggle" class="hamburger-menu">
+                <img src="/static/bars-solid.svg" alt="Menu items">
+            </label>
+        </div>
+        <div class="header-container-2">
+            <div>
+                <a href="/">
+                    <img src="/static/logo.svg" alt="Reiser Relief">
+                </a>
+            </div>
+        </div>
+        <div class="header-container-3">
+            <a href="/contact">
+                <div class="header-button">
+                    <div>
+                        <img src="/static/phone-volume-solid.svg" alt="">
+                    </div>
+                    <div>Contact</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
 <div class="mobile-menu">
     <div>
-
-        <div class="close">
+        <label for="menu-toggle" class="close">
             <img src="/static/xmark-solid.svg" alt="">
-        </div>
+        </label>
 
         <div class="menu-items-container">
             <a href="/">
@@ -62,34 +71,4 @@
             </a>
         </div>
     </div>
-</div>
-
-<div class="header">
-    <div class="square"></div>
-
-    <div class="header-container">
-        <div class="header-container-1">
-            <div class="hamburger-menu">
-                <img src="/static/bars-solid.svg" alt="Menu items">
-            </div>
-        </div>
-        <div class="header-container-2">
-            <div>
-                <a href="/">
-                    <img src="/static/logo.svg" alt="Reiser Relief">
-                </a>
-            </div>
-        </div>
-        <div class="header-container-3">
-            <a href="/contact">
-                <div class="header-button">
-                    <div>
-                        <img src="/static/phone-volume-solid.svg" alt="">
-                    </div>
-                    <div>Contact</div>
-                </div>
-            </a>
-        </div>
-    </div>
-
 </div>
