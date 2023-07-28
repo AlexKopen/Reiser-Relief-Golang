@@ -11,13 +11,13 @@ $color-orange: #EB8D29;
 $color-theme-dark: #00514D;
 $color-theme-light: #36bfbb;
 
-$icon-size: 3em;
+$icon-size: 5em;
 
 @mixin button() {
-  width: 14em;
+  width: 18em;
   background: $color-orange;
   color: $color-white;
-  height: 4em;
+  height: $icon-size + 1em;
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: 1em;
@@ -33,7 +33,7 @@ $icon-size: 3em;
   & > div:nth-of-type(2) {
     font-family: $cursive-font-family;
     font-weight: $cursive-font-weight;
-    font-size: 2em;
+    font-size: 3em;
     letter-spacing: 2px;
   }
 }
