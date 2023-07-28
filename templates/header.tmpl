@@ -16,10 +16,15 @@
 
             hamburgerMenu.addEventListener('click', function () {
                 mobileMenu.style.width = '100%';
+
+                setTimeout(() => {
+                    closeMenu.style.display = 'block';
+                }, 300)
             });
 
             closeMenu.addEventListener('click', function () {
                 mobileMenu.style.width = '0';
+                closeMenu.style.display = 'none';
             });
         });
     </script>

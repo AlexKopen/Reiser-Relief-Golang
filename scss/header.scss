@@ -4,8 +4,9 @@
   position: absolute;
   width: 0;
   transition: width 0.3s;
-  background: red;
+  background: $color-white;
   z-index: 1;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 
   & > div {
     overflow: hidden;
@@ -15,6 +16,7 @@
   .close {
     position: absolute;
     right: 1em;
+    display: none;
 
     img {
       width: $icon-size;
@@ -24,6 +26,10 @@
   .menu-items-container {
     width: 80%;
     margin: 0 auto;
+
+    & a:last-child .menu-item {
+      border-bottom: none;
+    }
   }
 
   .menu-item {
@@ -31,8 +37,10 @@
     border-bottom: 1px solid $color-theme-dark;
     cursor: pointer;
     font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-
 }
 
 
