@@ -1,5 +1,48 @@
-
 <p>Footer</p>
 
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function () {
+    const routes = ['/', '/about', '/donate', '/contact'];
+    const routeContents = {};
+
+    for (const route of routes) {
+        // If the route matches the current page, use the existing content
+        if (window.location.pathname === route) {
+            routeContents[route] = document.body.innerHTML;
+        } else {
+            try {
+                const res = await fetch(route);
+                const text = await res.text();
+                const domParser = new DOMParser();
+                const doc = domParser.parseFromString(text, 'text/html');
+                routeContents[route] = doc.body.innerHTML;
+            } catch (err) {
+                console.error(`Failed to fetch route: ${route}`, err);
+            }
+        }
+    }
+
+    document.body.addEventListener('click', function (e) {
+        const target = e.target;
+        const anchor = target.closest('a');
+
+        if (anchor) {
+            const href = anchor.getAttribute('href');
+
+            if (routes.includes(href)) {
+                e.preventDefault();
+
+                // Replace the current content with the new one
+                document.body.innerHTML = routeContents[href];
+
+                // Change the URL in the address bar
+                window.history.pushState({}, '', href);
+            }
+        }
+    });
+});
+</script>
+
 </html>
