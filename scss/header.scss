@@ -19,7 +19,7 @@
     grid-area: 1 / 1 / 2 / 2;
 
     & > div {
-      width: 2em;
+      width: $icon-size;
     }
   }
 
@@ -27,7 +27,8 @@
     grid-area: 1 / 2 / 2 / 3;
 
     & > div {
-      margin-left: 2em;
+      width: 24em;
+      margin-left: 1em;
     }
   }
 
@@ -36,7 +37,7 @@
     grid-area: 1 / 3 / 2 / 4;
     justify-content: right;
 
-    & > div {
+    & .header-button {
       @include button;
     }
   }

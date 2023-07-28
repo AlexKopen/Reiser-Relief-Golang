@@ -11,27 +11,29 @@ $color-orange: #EB8D29;
 $color-theme-dark: #00514D;
 $color-theme-light: #36bfbb;
 
+$icon-size: 3em;
+
 @mixin button() {
-  width: 10em;
+  width: 14em;
   background: $color-orange;
   color: $color-white;
-  height: 3em;
-  display: flex;
+  height: 4em;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 1em;
   justify-content: center;
   align-items: center;
   border-radius: 1em;
   cursor: pointer;
 
   & > div:first-of-type {
-    width: 2em;
-    display: flex;
-    margin-right: 0.5em;
+    width: $icon-size;
   }
 
   & > div:nth-of-type(2) {
     font-family: $cursive-font-family;
     font-weight: $cursive-font-weight;
-    font-size: 18px;
+    font-size: 2em;
     letter-spacing: 2px;
   }
 }
