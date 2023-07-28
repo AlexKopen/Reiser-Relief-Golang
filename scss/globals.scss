@@ -27,6 +27,9 @@ $icon-size: 4em;
   cursor: pointer;
 
   & > div:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: $icon-size;
   }
 
